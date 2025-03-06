@@ -1,0 +1,5 @@
+1. Install Flask
+2. python3 finance-ml/myapp.py
+3. Open Browser and goto the following address:
+
+localhost:5000

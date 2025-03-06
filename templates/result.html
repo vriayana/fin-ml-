@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Result</title>
+    <link type="text/css" href="{{ url_for('static', filename='css/mystyle.css') }}" rel="stylesheet"/>
+    <link type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+ 
+<body>
+    <div class=container>
+        <div>
+            <h2 class=text-center>Result</h2>
+        </div>
+        
+        <div class=jumbotron>
+		
+			<h3>Links</h3>
+            <div class="row btn-group">
+            	<a href="/" class="col-md-3 col-sm-3 col-xs-3 button">Home</a>
+		        <a href="/stockselect" class="col-md-3 col-sm-3 col-xs-3 button">Select Stock</a>
+		         <a href="/table" class="col-md-3 col-sm-3 col-xs-3 button">Table</a>
+		        <a href="/adminsec" class="col-md-3 col-sm-3 col-xs-3 button">Admin</a>
+            </div>
+		
+		    <br>
+		    <div class=row>
+				<fieldset><legend>Result: </legend>
+				<br>
+				<p>Support Vector Regressor (SVR): {{ result1 }}</p>
+				<br>
+				<p>Support Vector Regressor (SVR) (K-fold): {{ result1c }}</p>
+				<br>
+                <p>Linear Regressor (LR): {{ result2 }}</p>
+                <br>
+                <p>Linear Regressor (LR) (K-fold): {{ result2c }}</p>
+                <br>
+                <p>Multi-layer Perceptron regressor (MLP): {{ result3 }}</p>
+                <br>
+                <p>Multi-layer Perceptron regressor (MLP) (K-fold): {{ result3c }}</p>
+				</fieldset>
+			</div>
+		</div>
+		
+        <footer class="footer">
+            <p></p>
+        </footer>
+    </div>
+</body>
+ 
+</html>

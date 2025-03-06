@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Admin</title>
+    <link type="text/css" href="{{ url_for('static', filename='css/mystyle.css') }}" rel="stylesheet"/>
+	<link type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet"/>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+ 
+<body>
+    <div class=container>
+        <div>
+            <h2 class=text-center>Admin</h2>
+        </div>
+ 
+        <div class=jumbotron>
+        
+            <h3>Links</h3>
+            <div class="row btn-group">
+            	<a href="/" class="col-md-3 col-sm-3 col-xs-3 button">Home</a>
+		        <a href="/stockselect" class="col-md-3 col-sm-3 col-xs-3 button">Select Stock</a>
+		         <a href="/table" class="col-md-3 col-sm-3 col-xs-3 button">Table</a>
+		        <a href="/adminsec" class="col-md-3 col-sm-3 col-xs-3 button">Admin</a>
+            </div>
+            
+            <br>
+            <div class="row">
+                <fieldset><legend>Train Stocks: </legend>
+                    <form id=stock_form action="http://localhost:5000/train" method=post>
+                        <br>
+                        <select id=file_select name=file_select method=post>
+                        {% for file in files %}
+                            <option value= "{{file}}" SELECTED>{{file}}</option>"
+                        {% endfor %}
+                        </select>
+                        <input name=Submit type=submit value="Train"/>
+                    </form>
+                    <br>
+                    <form id=stock_form action="http://localhost:5000/trainall" method=post>
+                        <input name=Submit type=submit value="Train All"/>
+                    </form>
+                </fieldset>
+
+                <fieldset><legend>Update Prices: </legend>
+                    <form id=stock_form action="http://localhost:5000/updateprices" method=post>
+                        <input name=Submit type=submit value="Update Prices"/>
+                    </form>
+                    <p>(Requires internet connection)</p>
+                </fieldset>
+                
+                <fieldset><legend>Update Table: </legend>
+                    <form id=stock_form action="http://localhost:5000/createtable" method=post>
+                        <input name=Submit type=submit value="Update Table"/>
+                    </form>
+                    <p>(Run after Training All datasets)</p>
+                </fieldset>
+            </div>
+
+        </div>
+ 
+        <footer class="footer">
+            <p></p>
+        </footer>
+    </div>
+</body>
+ 
+</html>
